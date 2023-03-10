@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Узнать размеры экрана</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .btn {
+            padding: 20px 35px;
+            background-color: rgb(108, 58, 155);
+            color: #fff;
+            font-size: 30px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            color: rgb(108, 58, 155);
+            border: 2px solid rgb(108, 58, 155);
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">Узнать размеры экрана</button>
+
+    <script>
+        const btn = document.querySelector('.btn');
+
+        btn.onclick = function() {
+            let windowHeight = Math.max(
+                document.body.scrollHeight, document.documentElement.scrollHeight,
+                document.body.offsetHeight, document.documentElement.offsetHeight,
+                document.body.clientHeight, document.documentElement.clientHeight
+            );
+
+            let windowWidth = document.body.clientWidth;
+
+            alert(`Ширина экрана: ${windowWidth} \n Высота экрана: ${windowHeight}`);
+        }
+    </script>
+</body>
+</html>

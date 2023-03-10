@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            padding-top: 300px;
+        }
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            cursor: pointer;
+            border: none;
+            background-color: rgb(232, 139, 0);
+            border-radius: 20px;
+            transition: background-color .3s ease;
+        }
+        .btn:hover {
+            background-color: rgb(214, 105, 2);
+        }
+
+        .arrow_img {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">
+        <img class="arrow_img" src="./img/arrow-down-left-circle.svg" alt="arrow">
+        <img style="display: none;" class="arrow_img arrow_img_fill" src="./img/arrow-down-left-circle-fill.svg" alt="arrow">
+    </button>
+
+    <script>
+        const btn = document.querySelector('.btn');
+        const arrow = document.querySelector('.arrow_img');
+        const arrow_fill = document.querySelector('.arrow_img_fill');
+
+        btn.addEventListener('click', function() {
+            if (arrow.style.display !== 'none' && arrow_fill.style.display === 'none') {
+                arrow.style.display = 'none';
+                arrow_fill.style.display = 'inline';
+            } else {
+                arrow.style.display = 'inline';
+                arrow_fill.style.display = 'none';
+            }
+        })
+    </script>
+</body>
+</html>
